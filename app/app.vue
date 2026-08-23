@@ -153,7 +153,7 @@
           </div>
 
           <p class="copyright">
-            © 2026 Pangasinan Heritage Digital Showcase (Made by Denver Cadag)
+            © 2026 Pangasinan Heritage Digital Showcase (KLBMN)
           </p>
         </div>
       </footer>
