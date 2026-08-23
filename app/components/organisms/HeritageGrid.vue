@@ -1,27 +1,42 @@
 <template>
   <section class="heritage-grid">
+
     <HeritageCard
-      image="images/hundred-islands.jpg"
+      :image="hundredIslandsImage"
       title="Hundred Islands"
       location="Alaminos, Pangasinan"
       description="Explore the famous islands and clear blue waters of one of Pangasinan's most popular destinations."
     />
 
     <HeritageCard
-      image="images/bolinao-lighthouse.jpg"
+      :image="bolinaoLighthouseImage"
       title="Bolinao Lighthouse"
       location="Bolinao, Pangasinan"
       description="Discover this historic lighthouse overlooking the beautiful coast of Bolinao."
     />
 
     <HeritageCard
-      image="images/balungao-hot-spring.jpg"
+      :image="balungaoHotSpringImage"
       title="Balungao Hot Spring"
       location="Balungao, Pangasinan"
       description="Relax and enjoy the natural hot spring located at the foot of Mount Balungao."
     />
+
   </section>
 </template>
+
+<script setup>
+const baseURL = useRuntimeConfig().app.baseURL
+
+const hundredIslandsImage =
+  `${baseURL}images/hundred-islands.jpg`
+
+const bolinaoLighthouseImage =
+  `${baseURL}images/bolinao-lighthouse.jpg`
+
+const balungaoHotSpringImage =
+  `${baseURL}images/balungao-hot-spring.jpg`
+</script>
 
 <style scoped>
 .heritage-grid {
