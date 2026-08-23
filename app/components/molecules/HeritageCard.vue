@@ -13,14 +13,16 @@
         {{ description }}
       </BaseText>
 
-      <BaseButton>
-        Learn More
-      </BaseButton>
+      <BaseButton @click="$emit('learn-more')">
+       Learn More
+    </BaseButton>
     </div>
   </article>
 </template>
 
 <script setup>
+defineEmits(['learn-more'])
+
 defineProps({
   image: {
     type: String,
