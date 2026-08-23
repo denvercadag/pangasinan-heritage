@@ -12,5 +12,9 @@ export default defineNuxtConfig({
       path: '~/components',
       pathPrefix: false
     }
-  ]
+  ],
+
+  app: {
+    baseURL: '/pangasinan-heritage/'
+  }
 })
