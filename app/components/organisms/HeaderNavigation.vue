@@ -15,9 +15,13 @@
         <NavigationItem label="Contact" href="#contact" />
       </nav>
 
-      <a href="#heritage" class="explore-button">
-        Explore Map
-      </a>
+      <a href="https://www.google.com/maps/search/?api=1&query=Pangasinan%2C+Philippines"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="explore-button"
+>
+ Explore Map
+</a>
 
     </div>
   </header>
