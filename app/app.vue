@@ -18,9 +18,9 @@
             Timeless stories.
           </p>
 
-          <BaseButton>
-            Explore Heritage Sites
-          </BaseButton>
+          <BaseButton @click="scrollToHeritage">
+        Explore Heritage Sites
+      </BaseButton> 
         </div>
       </section>
 
@@ -199,6 +199,12 @@ onMounted(() => {
 onUnmounted(() => {
   window.removeEventListener('keydown', handleKeydown)
 })
+
+function scrollToHeritage() {
+  document.getElementById('heritage')?.scrollIntoView({
+    behavior: 'smooth'
+  })
+}
 
 useHead({
   title: 'Pangasinan Heritage Digital Showcase',
