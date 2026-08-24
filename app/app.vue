@@ -179,7 +179,7 @@
 
               <p>
                 <strong>Email:</strong>
-                your-email@gmail.com
+                pangasinaninformationoffice@gmail.com
               </p>
             </div>
           </div>
