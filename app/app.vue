@@ -19,8 +19,8 @@
           </p>
 
           <BaseButton @click="scrollToHeritage">
-        Explore Heritage Sites
-      </BaseButton> 
+            Explore Heritage Sites
+          </BaseButton>
         </div>
       </section>
 
@@ -58,7 +58,9 @@
 
         <div class="about-highlight">
           <span class="highlight-number">3</span>
-          <span class="highlight-text">Featured Heritage Sites</span>
+          <span class="highlight-text">
+            Featured Heritage Sites
+          </span>
         </div>
       </section>
 
@@ -89,7 +91,10 @@
             type="button"
             class="gallery-item"
             aria-label="Enlarge Bolinao Lighthouse image"
-            @click="openImage(bolinaoLighthouseImage, 'Bolinao Lighthouse')"
+            @click="openImage(
+              bolinaoLighthouseImage,
+              'Bolinao Lighthouse'
+            )"
           >
             <img
               :src="bolinaoLighthouseImage"
@@ -102,7 +107,10 @@
             type="button"
             class="gallery-item"
             aria-label="Enlarge Balungao Hot Spring image"
-            @click="openImage(balungaoHotSpringImage, 'Balungao Hot Spring')"
+            @click="openImage(
+              balungaoHotSpringImage,
+              'Balungao Hot Spring'
+            )"
           >
             <img
               :src="balungaoHotSpringImage"
@@ -142,26 +150,118 @@
         </div>
       </section>
 
+      <!-- CONTACT -->
+      <section id="contact" class="contact-section">
+        <div class="contact-container">
+
+          <!-- CONTACT INFO -->
+          <div class="contact-info">
+            <p class="contact-label">
+              GET IN TOUCH
+            </p>
+
+            <h2>
+              Explore More of
+              <span>Pangasinan</span>
+            </h2>
+
+            <p class="contact-description">
+              Have questions about Pangasinan's heritage sites?
+              Send us a message and discover more about the province's
+              culture, history, and natural attractions.
+            </p>
+
+            <div class="contact-details">
+              <p>
+                <strong>Location:</strong>
+                Pangasinan, Philippines
+              </p>
+
+              <p>
+                <strong>Email:</strong>
+                your-email@gmail.com
+              </p>
+            </div>
+          </div>
+
+          <!-- CONTACT FORM -->
+          <form
+            class="contact-form"
+            @submit.prevent="sendMessage"
+          >
+            <label for="contact-name">
+              Name
+            </label>
+
+            <input
+              id="contact-name"
+              v-model="contactName"
+              type="text"
+              placeholder="Your name"
+              required
+            >
+
+            <label for="contact-email">
+              Email
+            </label>
+
+            <input
+              id="contact-email"
+              v-model="contactEmail"
+              type="email"
+              placeholder="Your email"
+              required
+            >
+
+            <label for="contact-message">
+              Message
+            </label>
+
+            <textarea
+              id="contact-message"
+              v-model="contactMessage"
+              rows="5"
+              placeholder="Write your message..."
+              required
+            ></textarea>
+
+            <BaseButton type="submit">
+              Send Message
+            </BaseButton>
+          </form>
+
+        </div>
+      </section>
+
       <!-- FOOTER -->
       <footer class="site-footer">
         <div class="footer-content">
+
           <div>
             <h3>Pangasinan Heritage</h3>
+
             <p>
-              Celebrating the culture, history, and natural beauty of Pangasinan.
+              Celebrating the culture, history,
+              and natural beauty of Pangasinan.
             </p>
           </div>
 
           <p class="copyright">
             © 2026 Pangasinan Heritage Digital Showcase (KLBMN)
           </p>
+
         </div>
       </footer>
+
     </main>
   </div>
 </template>
 
 <script setup>
+const contactName = ref('')
+const contactEmail = ref('')
+const contactMessage = ref('')
+
 const baseURL = useRuntimeConfig().app.baseURL
 
 const hundredIslandsImage =
@@ -187,23 +287,51 @@ function closeImage() {
 }
 
 function handleKeydown(event) {
-  if (event.key === 'Escape' && selectedImage.value) {
+  if (
+    event.key === 'Escape' &&
+    selectedImage.value
+  ) {
     closeImage()
   }
 }
 
 onMounted(() => {
-  window.addEventListener('keydown', handleKeydown)
+  window.addEventListener(
+    'keydown',
+    handleKeydown
+  )
 })
 
 onUnmounted(() => {
-  window.removeEventListener('keydown', handleKeydown)
+  window.removeEventListener(
+    'keydown',
+    handleKeydown
+  )
 })
 
 function scrollToHeritage() {
-  document.getElementById('heritage')?.scrollIntoView({
-    behavior: 'smooth'
-  })
+  document
+    .getElementById('heritage')
+    ?.scrollIntoView({
+      behavior: 'smooth'
+    })
+}
+
+function sendMessage() {
+  const recipient = 'your-email@gmail.com'
+
+  const subject = encodeURIComponent(
+    `Pangasinan Heritage Inquiry from ${contactName.value}`
+  )
+
+  const body = encodeURIComponent(
+    `Name: ${contactName.value}\n` +
+    `Email: ${contactEmail.value}\n\n` +
+    `Message:\n${contactMessage.value}`
+  )
+
+  window.location.href =
+    `mailto:${recipient}?subject=${subject}&body=${body}`
 }
 
 useHead({
@@ -217,7 +345,8 @@ useHead({
     },
     {
       name: 'viewport',
-      content: 'width=device-width, initial-scale=1'
+      content:
+        'width=device-width, initial-scale=1'
     }
   ],
 
